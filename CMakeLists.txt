@@ -18,8 +18,10 @@ SET(CMAKE_AUTOUIC ON)
 find_package(Qt5 REQUIRED COMPONENTS
     Core
     Widgets
+    Concurrent
     Xml
-    Svg )
+    Svg
+    OpenGL)
 
 include_directories(
     ${Qt5Core_INCLUDE_DIRS}

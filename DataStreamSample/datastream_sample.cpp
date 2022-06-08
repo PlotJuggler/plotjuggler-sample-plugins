@@ -37,9 +37,9 @@ DataStreamSample::DataStreamSample()
     auto& tc_default = dataMap().addNumeric("tc/blue", tcGroup)->second;
     auto& tc_red = dataMap().addNumeric("tc/red", tcGroup)->second;
 
-    tcGroup->setAttribute("text_color", QColor(Qt::blue) );
+    tcGroup->setAttribute(PJ::TEXT_COLOR, QColor(Qt::blue) );
     // Series "text_color" property has a priority over the group color
-    tc_red.setAttribute("text_color", QColor(Qt::red) );
+    tc_red.setAttribute(PJ::TEXT_COLOR, QColor(Qt::red) );
 }
 
 bool DataStreamSample::start(QStringList*)
