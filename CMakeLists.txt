@@ -5,11 +5,6 @@ project(plotjuggler_sample_plugins)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_MODULE_PATH
-    ${CMAKE_MODULE_PATH}
-    "${CMAKE_CURRENT_SOURCE_DIR}/cmake"
-    )
-
 #-------  Include Qt dependencies -------
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
@@ -70,11 +65,13 @@ elseif( DEFINED ENV{AMENT_PREFIX_PATH})
     #------------- Build without any ROS support ------------
 else()
 
-    find_package(PlotJuggler REQUIRED)
+    find_package(plotjuggler REQUIRED)
     message(STATUS "PlotJuggler FOUND")
+    message(STATUS "plotjuggler_INCLUDE_DIR: ${plotjuggler_INCLUDE_DIR}")
+    message(STATUS "plotjuggler_LIBRARIES: ${plotjuggler_LIBRARIES}")
 
-    include_directories(${PlotJuggler_INCLUDE_DIRS})
-    list(APPEND ${PJ_LIBRARIES} ${PlotJuggler_LIBRARIES} )
+    include_directories(${plotjuggler_INCLUDE_DIR})
+    list(APPEND ${PJ_LIBRARIES} ${plotjuggler_LIBRARIES} )
     set(PJ_PLUGIN_INSTALL_DIRECTORY bin )
 
 endif()
