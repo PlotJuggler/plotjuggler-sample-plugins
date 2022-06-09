@@ -28,13 +28,13 @@ else()
     set(_LIBSUFFIXES /lib)
 endif()
 
-find_library(PlotJuggler_LIBRARY
+find_library( PlotJuggler_LIBRARY
     NAMES
-    plotjuggler_plugin_base
+      plotjuggler_base
     PATHS
-    "${PlotJuggler_ROOT_DIR}"
+      "${PlotJuggler_ROOT_DIR}"
     PATH_SUFFIXES
-    "${_LIBSUFFIXES}")
+      "${_LIBSUFFIXES}" )
 
 # Might want to look close to the library first for the includes.
 get_filename_component(_libdir "${PlotJuggler_LIBRARY}" PATH)
@@ -51,6 +51,7 @@ find_path(PlotJuggler_INCLUDE_DIR
     "${PlotJuggler_ROOT_DIR}"
     PATH_SUFFIXES
     include/PlotJuggler)
+
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(PlotJuggler
